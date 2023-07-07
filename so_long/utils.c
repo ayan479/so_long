@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:10:08 by mayan             #+#    #+#             */
-/*   Updated: 2023/06/06 22:36:47 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/05 12:53:33 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,39 @@ char	*ft_strrchr(const char *s, int c)
 		i--;
 	}
 	return (NULL);
+}
+
+void	*ft_memcpy(void *dst, void *src, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (!dst && !src)
+	{
+		return (NULL);
+	}
+	while (i < n)
+	{
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		i++;
+	}
+	return (dst);
+}
+
+char	*ft_substr(char *s, unsigned int start, size_t len)
+{
+	char	*substr;
+
+	if (!s)
+		return (NULL);
+	if (len > ft_strlen(s))
+		len = ft_strlen(s);
+	if (start > ft_strlen(s))
+		len = 0;
+	substr = (char *)malloc(sizeof(char) * (len + 1));
+	if (!substr)
+		return (NULL);
+	substr = ft_memcpy(substr, &s[start], len);
+	substr[len] = '\0';
+	return (substr);
 }

@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/20 13:22:21 by mayan             #+#    #+#             */
-/*   Updated: 2023/06/22 15:09:53 by mayan            ###   ########.fr       */
+/*   Uped: 2023/07/03 15:00:34 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static int	addline(t_data *game, char *line)
 	i = 0;
 	if (!line)
 		return (0);
+	if (line[ft_strlen(line) - 1] == '\n')
+		line[ft_strlen(line) - 1] = '\0';
 	game->height++;
 	temp = (char **)malloc(sizeof(char *) * (game->height + 1));
 	temp[game->height] = NULL;
@@ -48,8 +50,8 @@ static int	addline(t_data *game, char *line)
 
 int	ft_checkext(char *file)
 {
-	char			*ext;
-	char			*file_ext;
+	char	*ext;
+	char	*file_ext;
 
 	ext = ".ber";
 	file_ext = ft_strrchr((const char *)file, '.');
@@ -60,21 +62,33 @@ int	ft_checkext(char *file)
 	return (0);
 }
 
+void	ifnull(t_data *game, char *line)
+{
+	if (!line)
+	{
+		ft_printf ("\e[31m\e[1mError:\nInvalid File/Folder!\n");
+		exitpoint(game);
+	}
+}
+
 int	read_map(t_data *game, char **argv)
 {
 	char	*mapline;
 
 	if (!ft_checkext(argv[1]))
 	{
-		printf("\e[31m\e[1mError:\nFile extension is not Valid\n");
+		ft_printf("\e[31m\e[1mError:\nFile extension is not Valid\n");
 		exitpoint(game);
 	}
 	game->fd = open(argv[1], O_RDONLY);
 	if (game->fd < 0)
 	{
-		printf("\e[31m\e[1mError:\nFile Invalid\n");
+		ft_printf("\e[31m\e[1mError:\nFile Invalid\n");
 		exitpoint(game);
 	}
+	mapline = get_next_line(game->fd);
+	ifnull(game, mapline);
+  addline(game, mapline);
 	while (1)
 	{
 		mapline = get_next_line(game->fd);

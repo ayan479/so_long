@@ -6,26 +6,11 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 20:44:45 by mayan             #+#    #+#             */
-/*   Updated: 2023/06/14 21:52:28 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/07 19:49:51 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// void	place_player(t_data *game, int height, int width)
-// {
-// 	mlx_put_image_to_window(game->mlxptr,
-// 		game->winptr, game->player, width * 45, height * 40);
-// 		game->p_x = x;
-// 		game->p_y = y;
-// }
-
-// void	place_coin(t_data *game, int height, int width)
-// {
-// 	mlx_put_image_to_window(game->mlxptr,
-// 		game->winptr, game->coin, width * 40, height * 40);
-// 	game->coin++;
-// }
 
 void	chr2img(t_data	*game, char c, int x, int y)
 {
@@ -38,14 +23,15 @@ void	chr2img(t_data	*game, char c, int x, int y)
 		game->py = y;
 	}
 	else if (c == 'C')
-	{
 		drawimg(game, COIN, x, y);
-		game->coins++;
-	}
 	else if (c == '0')
 		drawimg(game, FLOOR, x, y);
 	else if (c == 'E')
+	{
 		drawimg(game, EXIT, x, y);
+		game->ex = x;
+		game->ey = y;
+	}
 }
 
 void	drawimg(t_data	*game, char *path, int x, int y)
@@ -66,7 +52,6 @@ void	drawmap(t_data	*game)
 	int	w;
 
 	h = 0;
-	game->coins = 0;
 	while (h < game->height)
 	{
 		w = 0;
