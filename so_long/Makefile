@@ -1,20 +1,21 @@
 NAME = so_long
 
-CC = gcc
+CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -Iheaders -g3
 
 SOURCE := *.c
-GETNEXTLINE := utils/*c
+UTILS := utils/*c
 LIBRARY := -Lmlx -lmlx -framework OpenGL -framework AppKit
 MLX := mlx/
 
 all:
 	make -C $(MLX)
-	$(CC) $(CFLAGS) $(SOURCE) $(GETNEXTLINE) $(LIBRARY) -o $(NAME)
+	$(CC) $(CFLAGS) $(SOURCE) $(UTILS) $(LIBRARY) -o $(NAME)
 
 clean:
 	rm -f $(SOURCE:.c=.o)
+	$(MAKE) clean -C mlx
 
 fclean: clean
 	rm -f $(NAME)

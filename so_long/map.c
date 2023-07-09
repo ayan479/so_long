@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/09 12:36:26 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/09 17:24:39 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 21:25:04 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	read_map(t_data *game, char **argv)
 	}
 	mapline = get_next_line(game->fd);
 	ifnull(game, mapline);
-  addline(game, mapline);
+	addline(game, mapline);
 	while (1)
 	{
 		mapline = get_next_line(game->fd);

@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 19:45:40 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/08 17:17:57 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 19:07:41 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int	check_pec(t_data *game)
 	game->players = count_characters('P', game);
 	game->exits = count_characters('E', game);
 	game->coins = count_characters('C', game);
-	ft_printf("Players: %d, Exits: %d, Coins: %d\n", game->players, game->exits, game->coins);
 	if (game->players == 1 && game->exits == 1 && game->coins > 0)
 		return (1);
 	else if (game->players != 1)

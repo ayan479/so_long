@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:44:57 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/09 18:40:43 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 21:35:29 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	main(int argc, char **argv)
 	mlx_key_hook(game.winptr, keyhooks, &game);
 	mlx_hook(game.winptr, 17, 0, mouse, &game);
 	mlx_loop(game.mlxptr);
-	free(game.map);
+	freearray(game.map);
 	return (0);
 }
 

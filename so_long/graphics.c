@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 20:44:45 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/09 17:25:15 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 22:14:00 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	drawimg(t_data	*game, char *path, int x, int y)
 	x = x * size;
 	y = y * size;
 	game->img = mlx_xpm_file_to_image(game->mlxptr, path, &size, &size);
+	if (!game->img)
+		exit(1);
 	mlx_put_image_to_window(game->mlxptr, game->winptr, game->img, x, y);
 	mlx_destroy_image(game->mlxptr, game->img);
 }
@@ -57,7 +59,6 @@ void	drawmap(t_data	*game)
 		w = 0;
 		while (game->map[h][w])
 		{
-			ft_printf("HeightG: %d, Width: %d\n", h, w);
 			chr2img(game, game->map[h][w], w, h);
 			w++;
 		}

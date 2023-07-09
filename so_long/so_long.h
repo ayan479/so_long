@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:10:24 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/09 17:32:30 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 21:40:32 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,8 @@ int			mouse(t_data *game);
 int			read_map(t_data *game, char **argv);
 char		*ft_strrchr(const char *s, int c);
 int			ft_strcmp(char *s1, char *s2);
-char		**ft_split(char *s, char c);
 void		*ft_memcpy(void *dst, void *src, size_t n);
 void		drawmap(t_data *game);
-char		*ft_substr(char *s, unsigned int start, size_t len);
 void		errorcheck(t_data *game);
 int			charactercheck(t_data *game);
 int			count_characters(char c, t_data *game);
@@ -83,6 +81,7 @@ int			checkwalls(t_data *game);
 void		validpath(t_data *game);
 void		hashmaker(t_data *game);
 int			keyhooks(int keycode, t_data *game);
+void		freearray(char **p);
 void		chr2img(t_data *game, char c, int x, int y);
 void		drawimg(t_data *game, char *path, int x, int y);
 #endif

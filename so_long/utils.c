@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:10:08 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/08 15:59:13 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 21:40:22 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,24 +53,6 @@ void	*ft_memcpy(void *dst, void *src, size_t n)
 		i++;
 	}
 	return (dst);
-}
-
-char	*ft_substr(char *s, unsigned int start, size_t len)
-{
-	char	*substr;
-
-	if (!s)
-		return (NULL);
-	if (len > ft_strlen(s))
-		len = ft_strlen(s);
-	if (start > ft_strlen(s))
-		len = 0;
-	substr = (char *)malloc(sizeof(char) * (len + 1));
-	if (!substr)
-		return (NULL);
-	substr = ft_memcpy(substr, &s[start], len);
-	substr[len] = '\0';
-	return (substr);
 }
 
 int	count_characters(char c, t_data *game)
