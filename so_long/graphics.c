@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/10 20:44:45 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/07 19:49:51 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 17:25:15 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	drawmap(t_data	*game)
 		w = 0;
 		while (game->map[h][w])
 		{
-			ft_printf("Height: %d, Width: %d\n", h, w);
+			ft_printf("HeightG: %d, Width: %d\n", h, w);
 			chr2img(game, game->map[h][w], w, h);
 			w++;
 		}

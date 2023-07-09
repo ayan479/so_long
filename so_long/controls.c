@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keyhooks.c                                         :+:      :+:    :+:   */
+/*   controls.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:11:19 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/07 20:49:08 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 17:35:36 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int	move(t_data *game, int y, int x)
 	{
 		drawimg(game, FLOOR, game->px, game->py);
 		drawimg(game, EXITMEW, game->px + x, game->py + y);
+		ft_printf("\e[95m\e[3;1m\nCOLLECT ALL THE CANDY FIRST MEW!\n\n");
 		coincollect(game, game->px + x, game->py + y);
 		game->flag = 1;
 	}

@@ -6,55 +6,90 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 13:09:54 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/07 15:45:47 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 17:32:19 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static int	num_words(char *s, char c)
+// static int	num_words(char *s, char c)
+// {
+// 	int	i;
+// 	int	n;
+
+// 	i = 0;
+// 	n = 0;
+// 	while (s[i])
+// 	{
+// 		if ((i == 0 || s[i - 1] == c) && s[i] != c)
+// 			n++;
+// 		i++;
+// 	}
+// 	return (n);
+// }
+
+// char	**ft_split(char *s, char c)
+// {
+// 	char	**tab;
+// 	int		i;
+// 	int		start;
+// 	int		end;
+
+// 	i = 0;
+// 	start = 0;
+// 	end = 0;
+// 	if (!s)
+// 		return (0);
+// 	tab = (char **)malloc((num_words(s, c) + 1) * sizeof(char *));
+// 	if (!tab)
+// 		return (0);
+// 	while (i < num_words(s, c))
+// 	{
+// 		while (s[start] == c)
+// 			start++;
+// 		end = start;
+// 		while (s[end] != c && s[end])
+// 			end++;
+// 		tab[i++] = ft_substr(s, start, (end - start));
+// 		start = end;
+// 	}
+// 	tab[i] = 0;
+// 	return (tab);
+// }
+
+// void	freearray(char **p)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	while (p != NULL && p[i])
+// 	{
+// 		free(p[i]);
+// 		i++;
+// 	}
+// 	if (p)
+// 	{
+// 		free(p);
+// 		p = NULL;
+// 	}
+// }
+
+void	hashmaker(t_data *game)
 {
-	int	i;
-	int	n;
+	int	y;
+	int	x;
 
-	i = 0;
-	n = 0;
-	while (s[i])
+	y = 0;
+	while (y < game->height)
 	{
-		if ((i == 0 || s[i - 1] == c) && s[i] != c)
-			n++;
-		i++;
+		x = 0;
+		while (x < game->width)
+		{
+			game->vpath[y][x] = 0;
+			x++;
+		}
+		y++;
 	}
-	return (n);
-}
-
-char	**ft_split(char *s, char c)
-{
-	char	**tab;
-	int		i;
-	int		start;
-	int		end;
-
-	i = 0;
-	start = 0;
-	end = 0;
-	if (!s)
-		return (0);
-	tab = (char **)malloc((num_words(s, c) + 1) * sizeof(char *));
-	if (!tab)
-		return (0);
-	while (i < num_words(s, c))
-	{
-		while (s[start] == c)
-			start++;
-		end = start;
-		while (s[end] != c && s[end])
-			end++;
-		tab[i++] = ft_substr(s, start, (end - start));
-		start = end;
-	}
-	tab[i] = 0;
-	return (tab);
 }
 
 int	exitpoint(t_data *game)

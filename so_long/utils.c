@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/31 16:10:08 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/05 12:53:33 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/08 15:59:13 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,4 +71,27 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	substr = ft_memcpy(substr, &s[start], len);
 	substr[len] = '\0';
 	return (substr);
+}
+
+int	count_characters(char c, t_data *game)
+{
+	int	count;
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
+	count = 0;
+	while (game->map[y])
+	{
+		x = 0;
+		while (game->map[y][x])
+		{
+			if (game->map[y][x] == c)
+				count++;
+			x++;
+		}
+		y++;
+	}
+	return (count);
 }

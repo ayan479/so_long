@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:44:57 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/07 19:27:50 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 18:40:43 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,11 @@ void	*ft_memset(void *b, int c, size_t len)
 
 void	errorcheck(t_data *game)
 {
-	game->coins = 0;
-	game->players = 0;
-	game->exits = 0;
-	game->flag = 0;
 	mapshape(game);
 	checkwalls(game);
 	charactercheck(game);
+	hashmaker(game);
+	validpath(game);
 }
 
 int	main(int argc, char **argv)
@@ -41,7 +39,7 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("NEED 2 ARGUMENTS\n");
+		ft_printf("\e[31m\e[1mError:\nNEED 2 ARGUMENTS\n");
 		return (0);
 	}
 	ft_memset(&game, 0, sizeof(t_data));
@@ -59,9 +57,27 @@ int	main(int argc, char **argv)
 	free(game.map);
 	return (0);
 }
-	// for (int i = 0; i < game.height; i++)
-	// {
-	// 	ft_printf("%s\n", game.map[i]);
-	// }
-	// ft_printf("\nHeight: %d, Width: %d\n", game.height, game.width);
-	// ft_printf("\e[31m\e[1mError:\nJoebama1?\n");
+
+// int	flag(int z, t_data *game)
+// {
+// 	if (z == 1)
+// 	{
+// 		ft_printf("\e[31m\e[1mError:\nNO WALLS on Y axis\n");
+// 		exitpoint(game);
+// 		return (0);
+// 	}
+// 	if (z == 2)
+// 	{
+// 		ft_printf("\e[31m\e[1mError:\nNO WALL on X axis\n");
+// 		exitpoint(game);
+// 		return (0);
+// 	}
+// 	if (z == 3)
+// 	{
+// 		ft_printf("\e[31m\e[1mError:\nNO WALL on X and Y axis\n");
+// 		exitpoint(game);
+// 		return (0);
+// 	}
+// 	else
+// 		return (1);
+// }
