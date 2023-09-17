@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:10:24 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/09 21:40:32 by mayan            ###   ########.fr       */
+/*   Updated: 2023/09/17 21:26:24 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_data
 	int		size_x;
 	int		size_y;
 
-	int		vpath[256][256];
+	int		**vpath;
 	char	**map;
 
 	void	*mlxptr;
@@ -79,7 +79,7 @@ int			count_characters(char c, t_data *game);
 int			mapshape(t_data *game);
 int			checkwalls(t_data *game);
 void		validpath(t_data *game);
-void		hashmaker(t_data *game);
+void		vpathinit(t_data *game);
 int			keyhooks(int keycode, t_data *game);
 void		freearray(char **p);
 void		chr2img(t_data *game, char c, int x, int y);

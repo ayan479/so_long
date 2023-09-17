@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/03 13:09:54 by mayan             #+#    #+#             */
-/*   Updated: 2023/07/09 21:40:04 by mayan            ###   ########.fr       */
+/*   Updated: 2023/09/17 21:26:33 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,6 @@ void	freearray(char **p)
 	{
 		free(p);
 		p = NULL;
-	}
-}
-
-void	hashmaker(t_data *game)
-{
-	int	y;
-	int	x;
-
-	y = 0;
-	while (y < game->height)
-	{
-		x = 0;
-		while (x < game->width)
-		{
-			game->vpath[y][x] = 0;
-			x++;
-		}
-		y++;
 	}
 }
 
