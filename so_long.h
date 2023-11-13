@@ -6,13 +6,13 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:10:24 by mayan             #+#    #+#             */
-/*   Updated: 2023/09/04 13:08:59 by mayan            ###   ########.fr       */
+/*   Updated: 2023/11/13 17:03:33 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
-# include "mlxl/mlx.h"
+# include "mlx/mlx.h"
 # include "utils/ft_printf.h"
 # include "utils/get_next_line.h"
 # include <fcntl.h>
@@ -26,17 +26,17 @@
 # define EXIT "./images/pokeball.xpm"
 # define EXITMEW "./images/exitmew.xpm"
 
-# define W 13
-# define A 0
-# define S 1
-# define D 2
+# define W 119
+# define A 97
+# define S 115
+# define D 100
 
-# define ESC 53
+# define ESC 65307
 
-# define UP 126
-# define DOWN 125
-# define LEFT 124
-# define RIGHT 123
+# define UP 65362
+# define DOWN 65364
+# define LEFT	65363
+# define RIGHT 65361
 
 typedef struct s_data
 {

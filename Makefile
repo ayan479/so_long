@@ -1,32 +1,23 @@
 NAME = so_long
 
-UNAME_S := $(shell uname -s)
-ifeq ($(UNAME_S),Linux)
-	MLX_PATH	=	./mlxl/
-	MLX			=	libmlxl.a
-	MLXFLAGS	=	-lm -lbsd -lmlx -lXext -lX11
-	CC			=	clang
-	CFLAGS		=	-Wall -Werror -Wextra -gdwarf-4
-else
-	MLX_PATH	=	./mlx/
-	MLX			=	libmlx.a
-	MLXFLAGS	=	-L ${MLX_PATH} -lmlx -framework OpenGL -framework AppKit
-	CC			=	cc
-	CFLAGS		=	-Wall -Werror -Wextra ${HEADER}
-endif
+CC = clang
+CFLAGS = -Wall -Werror -Wextra -gdwarf-4
 
 SOURCE := *.c
-UTILS := utils/*c
+UTILS := utils/*.c
+LIBRARY := -lm -lbsd -L./mlx -lmlx -lXext -lX11
+
+MLX = mlx
 
 all: $(NAME)
 
-$(NAME): $(SOURCE) $(UTILS)
-	make -C $(MLX_PATH)
-	$(CC) $(CFLAGS) $(SOURCE) $(UTILS) $(MLX_PATH)$(MLX) -o $(NAME) $(MLXFLAGS)
+$(NAME):
+	make -C $(MLX)
+	$(CC) $(CFLAGS) $(SOURCE) $(UTILS) $(LIBRARY) -o $(NAME)
 
 clean:
 	rm -f $(SOURCE:.c=.o)
-	$(MAKE) clean -C $(MLX_PATH)
+	$(MAKE) clean -C $(MLX)
 
 fclean: clean
 	rm -f $(NAME)
