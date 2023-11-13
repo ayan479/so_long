@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validpath.c                                        :+:      :+:    :+:   */
+/*   pathpath.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/17 19:28:36 by mayan             #+#    #+#             */
-/*   Updated: 2023/09/17 21:00:45 by mayan            ###   ########.fr       */
+/*   Created: 2023/07/07 21:35:39 by mayan             #+#    #+#             */
+/*   Updated: 2023/07/08 19:49:40 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,26 +67,6 @@ void	dfs(t_data *game, int x, int y)
 		dfs(game, x, y + 1);
 	if (pathcheck(game, x - 1, y) == 0)
 		dfs(game, x - 1, y);
-}
-
-void	vpathinit(t_data *game)
-{
-	int	x;
-	int	y;
-
-	y = 0;
-	game->vpath = malloc(sizeof(int **) * game->height);
-	while (y < game->height)
-	{
-		game->vpath[y] = malloc(sizeof(int *) * game->width);
-		x = 0;
-		while (x < game->width)
-		{
-			game->vpath[y][x] = 0;
-			x++;
-		}
-		y++;
-	}
 }
 
 void	validpath(t_data *game)

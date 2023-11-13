@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 14:44:57 by mayan             #+#    #+#             */
-/*   Updated: 2023/09/17 21:25:56 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 21:35:29 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	errorcheck(t_data *game)
 	mapshape(game);
 	checkwalls(game);
 	charactercheck(game);
-	vpathinit(game);
+	hashmaker(game);
 	validpath(game);
 }
 

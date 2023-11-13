@@ -6,7 +6,7 @@
 /*   By: mayan <mayan@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/06 15:11:19 by mayan             #+#    #+#             */
-/*   Updated: 2023/09/16 18:58:01 by mayan            ###   ########.fr       */
+/*   Updated: 2023/07/09 17:35:36 by mayan            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,6 @@ int	keyhooks(int keycode, t_data *game)
 	else if (keycode == D || keycode == LEFT)
 		move(game, 0, 1);
 	else if (keycode == ESC)
-	{
-		ft_printf("--------------------------------------------------\n");
-		ft_printf("|              You gave up :(                    |\n");
-		ft_printf("--------------------------------------------------\n");
 		closewin(game);
-	}
 	return (0);
 }
